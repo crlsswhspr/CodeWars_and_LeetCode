@@ -1,0 +1,18 @@
+from collections import deque
+
+def tree_by_levels(root):
+    if root is None:
+        return []
+
+    lst = []
+    queue = deque([root])
+    while queue:              
+        node = queue.popleft() 
+        lst.append(node.value)
+
+        if node.left is not None:
+            queue.append(node.left)
+        if node.right is not None:
+            queue.append(node.right)
+
+    return lst
